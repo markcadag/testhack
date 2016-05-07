@@ -1,0 +1,30 @@
+<div class="row" id='answer-row-<%= answer.id %>'>
+		<%= render partial: 'users/user_profile_template_small', locals: { user: answer.user, question_count: answer.user.topics.size, answer_count: answer.user.answers.size } %>
+	<br>
+	<div class="col-md-12">
+		<div class="col-md-1">
+				<div id="answer-<%= answer.id %>" data-id="<%= answer.id%>" class="upvote">
+					<%= link_to "-", answer_downvote_path(answer),class: "downvote", method: :put, remote: :true%>
+					<span class="count"><%= answer.cached_votes_up %></span>
+					<%= link_to "+",answer_upvote_path(answer),class: "upvote", method: :put, remote: :true %>
+				</div>
+		</div>
+		<div class="col-md-11">
+			<p class="desc">
+				<% if policy(answer).edit? %>
+					<%= editable answer, :content , type: :textarea%>
+				<% else %>
+					<%= simple_format(answer.content) %>
+				<% end %>
+			</p>
+		</div>
+		<% if user_signed_in? %>
+			<% if policy(answer).destroy? %>
+				<%= link_to "delete",answer_path(answer),method: :delete, remote: :true %>
+			<% else %>
+				<%= timeago_tag answer.updated_at, :nojs => true, :limit => 20.years.ago %>
+			<% end %>					
+		<% end %>
+		<hr/>
+	</div>
+</div>

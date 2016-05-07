@@ -1,0 +1,132 @@
+<div class="container" style="margin-top:100px;">		
+		<div class="col-md-8">
+			<h4 class="def-title-size">
+				<% if policy(@topic).edit? %>
+					<%= editable @topic, :subject , type: :textarea %>
+				<% else %>
+					<%= @topic.subject %>
+				<% end %>
+			</h4><br>
+			<% if @topic.user.present? %>
+				<%= render partial: 'users/user_profile_template', locals: { user: @topic.user, question_count: @topic.user.topics.size, answer_count: @topic.user.answers.size } %>
+			<% else %>
+				<div class="row">
+				  <div class="col-md-1">
+				    <div class="img-pic">
+				      <img src="/images/no-pic.png" class="img-responsive"/>
+				    </div>
+				  </div>
+				  <div class="col-md-10">
+				    <p class="def-size">
+				      &nbsp; Anonymous User <br/>
+				    </p>
+				  </div>
+				</div>
+			<% end %>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="desc">
+					<% if policy(@topic).edit? %>
+						<%= editable @topic, :content , type: :textarea %>
+					<% else %>
+						<%= simple_format(@topic.content) %>
+					<% end %>
+					</p>
+				</div>
+			</div>
+		
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<ul class="tags">
+					<%= render partial: 'tags/tag_list', collection: @topic.tag_list %>
+				</ul>
+			</div>
+		</div>
+		<br><br>
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+			<p class="title def-color" id="title"><b><%= @answers.size %> Answer(s)</b></p><hr/>
+			<div class="answers-container" id="answers-container">
+				<% @answers.each do |answer| %>
+					<%= render partial: 'answers/answer_list', locals: { user: answer.user, question_count: answer.user.topics.size, answer_count: answer.user.answers.size, answer: answer } %>	
+               <% end %>
+			</div>
+		</div>
+			<br>
+			<div class="row">
+				<div class="col-md-12">
+					<%= render 'answers/new', review: Answer.new(topic_id: @topic.id) %>
+				</div>
+			</div>
+			<br>
+		</div>
+		</div>
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="content-body">
+					<ul class="content-list03">
+						<p class="sec-color">Views&nbsp;&nbsp;&nbsp;<b><%= @topic.cached_views_count %> </b></p>
+						<p class="sec-color">Answers&nbsp;&nbsp;&nbsp;<b><%= @topic.answers_count %> </b></p>
+						<p class="sec-color">Asked&nbsp;&nbsp;&nbsp;<b><%= timeago_tag @topic.created_at, :nojs => true, :limit => 20.years.ago %></b></p>
+						<p class="sec-color">Update&nbsp;&nbsp;&nbsp;<b><%= timeago_tag @topic.updated_at, :nojs => true, :limit => 20.years.ago %></b></p><br>
+					</ul>
+					 <ul class="content-list05">
+					    <p class="sec-color title"><b>Related Question(s)</b></p>
+					    <%= render partial: 'topics/topic_list', collection: @related_questions %>
+					</ul>
+				</div>
+					
+					<div class="content-body">
+					<ul class="content-list05">
+						  <div class="well">
+							<p class="sec-color title"><b>Also Appeared in</b>
+							 <%= render :partial => 'appear_ins/form' , locals: { :appear_in => AppearIn.new, :topic => @topic} %>
+							 <div class="appeared_in_container" id='appeared_in_container'>
+								 <% @also_appear_in.each do |course| %>
+					              <li>
+					                <%= fa_icon "circle", class: 'fa-fa fa-1' %>&nbsp;&nbsp;
+					                <%= link_to(course.name, "#") %> 
+					              </li>
+					            <% end %>
+				        	</div>
+						</div>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$.fn.editable.defaults.mode = 'inline';
+		$( document ).ready(function() {
+			for (i in gon.answers) {
+				console.log("id   :" +gon.answers[i].id);
+				console.log("score:" +gon.answers[i].cached_weighted_score);
+				console.log("up   :" +gon.answers[i].cached_votes_up);
+				console.log("down :" +gon.answers[i].cached_votes_down);
+				console.log("------------------------------------");
+  				$('#answer-' + gon.answers[i].id).upvote({count:  gon.answers[i].cached_weighted_score, upvoted: gon.answers[i].cached_votes_up, downvoted: gon.answers[i].cached_votes_down});
+			}
+   		});
+   		$('.editable').editable();
+	</script>
+
+	<style type="text/css">
+	.editable-unsaved {
+		font-weight: normal;
+	}
+
+	.editable-container.editable-inline,
+	.editable-container.editable-inline .control-group.form-group,
+	.editable-container.editable-inline .control-group.form-group .editable-input,
+	.editable-container.editable-inline .control-group.form-group .editable-input textarea,
+	.editable-container.editable-inline .control-group.form-group .editable-input select,
+	.editable-container.editable-inline .control-group.form-group .editable-input input:not([type=radio]):not([type=checkbox]):not([type=submit]){
+	   	width: -moz-calc(100% - 15px);
+	  	width: -webkit-calc(100% - 15px);
+	  	width: calc(100% - 15px);
+  	}
+
+
+	</style>

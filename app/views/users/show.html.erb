@@ -1,0 +1,192 @@
+ 
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload New</h4>
+      </div>
+      <div class="modal-body">
+       <%= form_for(@user, html: { multipart: true ,class: 'dropzone',:method => :put}) do |f|  %>
+          <div class="fallback">
+            <%= f.file_field :avatar %><br>
+            <%= f.submit "Upload my Avatar" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+ <style type="text/css">
+ .editable-user-name {
+    font-size: 24px;
+    color: black;
+ }
+</style>
+ 
+ <script>
+  
+  $( document ).ready(function() {
+      $.fn.editable.defaults.mode = 'inline';
+      $('.editable').editable();
+
+      Dropzone.autoDiscover = false;
+
+      // var dropzone = new Dropzone(".dropzone", {
+      //   maxFileSize: 256,
+      //   paramName: 'user[avatar]',
+      //   addRemoveLinks: false
+      // });
+
+      // dropzone.on('success', function(file) {
+      //   this.removeFile(file);
+      //   $.getScript("/images");
+      // });
+
+  });
+ </script>
+
+ <div class="wrap" style="margin-top:100px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-3">
+                <%= image_tag @user.avatar.thumb.url if @user.avatar? %>
+                <%= form_for(@user, html: { multipart: true ,:method => :put}) do |f|  %>
+                  <div class="fallback">
+                    <%= f.file_field :avatar %><br>
+                    <%= f.submit "Upload my Avatar" %>
+                  </div>
+                <% end %>
+<!-- 
+          <%= form_for(@user, html: { multipart: true ,class: 'dropzone', method: :put}) do |f|  %>
+          <div class="fallback">
+            <%= f.file_field :avatar %><br>
+            <%= f.submit "dropzone" %>
+          </div>
+        <% end %>
+ -->
+
+              </div>
+              <div class="col-md-9">
+                <div style="margin-left:10px;">
+                  <% if policy(@user).edit? %>
+                	  <p href="#" id="username" class="editable-user-name">
+                      <%= editable @user, :first_name , type: :text %>
+                      <%= editable @user, :last_name , type: :text %>
+                    </p>
+                  <% else %>
+                    <p href="#" id="username" class="editable-user-name"><%= @user.first_name %> <%= @user.last_name %> false</p>
+                  <% end %>
+                    <p class="sec-color def-size"><b>Preparing For 
+                        <% if @preparing_for.present? %>
+                          <%= @preparing_for.name %>
+                        <% end %></b><br>
+                    <span class="def-color">
+                      <% if @user.academies.last %>
+                        <%= @user.academies.last.name %>
+                      <% end %>
+                    </span>
+                    </p>
+                    <p class="sec-color">Course Interested in:&nbsp;
+                         <% @followed_courses.each do |course| %>
+                            <%= link_to(course.name, course_path(course))%><% if @followed_courses.last.id != course.id %>, <% end %>
+                          <% end %>
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="content tab-user">
+              <div class="content-heading">
+              <div class="row">
+                <div class="col-md-10 text-left">
+                  <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                        <% if @preparing_for.present? %>
+                          <% if @questions.present? %>
+                            <li class="active"><a href="#questions" data-toggle="tab"><%= @questions.size %> <%= @preparing_for.name %> Question(s)</a></li>
+                          <% end %>
+                          <% if @answers.present? %>
+                            <li><a href="#answers" data-toggle="tab"><%= @answers.size %> <%= @preparing_for.name %> Answer(s)</a></li>
+                          <% end %>
+                        <% else %>
+                            <li class="active"><a href="#questions" data-toggle="tab">Question</a></li>
+                            <li ><a href="#answers" data-toggle="tab">Answers</a></li>
+                        <% end %>
+                        <% if @history.present? %>
+                            <li><a href="#history" data-toggle="tab"><%= @history.size %> Question(s) in History</a></li>
+                        <% else %>
+                            <li ><a href="#history" data-toggle="tab">History</a></li>
+                        <% end %>
+                        
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="content-body">
+              <div id="my-tab-content" class="tab-content">
+
+                    <div class="tab-pane active" id="questions">
+                      <% if @questions.present? %>
+                        <% @questions.each do |topic| %>
+                            <%= render :partial => 'feeds/feeds_list' , locals: { :topic => topic } %>
+                        <% end %>
+                      <% else %>
+                          <p>No Questions Yet</p>
+                      <% end %>
+                    </div>
+
+                    <div class="tab-pane" id="answers">
+                      <% if @answers.present? %>
+                        <% @answers.each do |answer| %>
+                            <%= render :partial => 'answers/user_answer_list' , locals: { :topic => answer.topic, :answer => answer } %>
+                        <% end %>
+                      <% else %>
+                          <p>No Answers Yet</p>
+                      <% end %>
+                    </div>
+
+                    <div class="tab-pane" id="history">
+                      <% if @history.present? %>
+                        <% @history.each do |history| %>
+                          <%= render :partial => 'feeds/feeds_list' , locals: { :topic => history } %>
+                      <% end %>
+                      <% else %>
+                          <p>No History Yet</p>
+                      <% end %>
+                    </div>
+              </div>
+          </div>
+        </div>
+          </div>
+          <div class="col-md-4">
+            <ul class="content-list04">
+              <% if @preparing_for.present? %>
+                <h5><p class="sec-color"><b>Also Preparing For <%= @preparing_for.name %></b></p></h5>
+                 <br>
+                <%= render partial: 'user_list', collection: @user_preparings %>
+                  <a href="#"><i>See more</i>&nbsp;<i class="fa fa-hand-o-right"></i></a>
+                <br>
+              <% end %>
+            </ul><br>
+            
+            
+            <ul class="content-list04">
+              <li>
+                <% if @preparing_for.present? %>
+                  <h5><p class="sec-color"><b>Recently Passed UPCAT</b></p></h5>
+                  <br>
+                   <%= render partial: 'user_list', collection: @user_preparings %>
+                   <a href="#"><i>See more</i>&nbsp;<i class="fa fa-hand-o-right"></i></a>
+                <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    

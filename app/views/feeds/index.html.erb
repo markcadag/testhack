@@ -1,0 +1,165 @@
+
+    <!-- Modal for posting question-->
+    <div class="modal fade" id="postQuestion" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title company-form" id="myModalLabel">Post Question</h4>
+          </div>
+          <div class="modal-body " style="overflow:hidden;">
+             <%= render :partial => 'topics/form' , locals: { :topic => Topic.new } %>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  <div id="popover-content" class="hide">
+    <!-- <button class="test" id="test">Toggle me!</button> -->
+    <!-- <input id="input" class="form-control input"></input> -->
+    <input id="tags" class="tags form-control" placeholder="Search">
+    <div id="searchSuggest" class="searchSuggest">
+
+    </div>
+    <center><i class="fa fa-spinner fa-pulse" style="padding:10px;"></i></center>
+  </div>
+
+
+  <div class="container"  style="padding-top:80px;">
+    <div class="col-md-2 col-sm-12">
+      <div class="content">
+        <div class="content-heading">
+          <div class="row">
+            <div class="col-md-6"><a href="#" class="sec-color"><b>Followed</b></a></div>
+            <div class="col-md-6 text-right">
+             <b><a href="#" data-placement="right" data-toggle="popover" data-container="body" type="button" data-html="true" title="<h5>Exams List</h5>" id="login">Edit</a></b>
+            </div>
+          </div>
+        </div>
+        <div class="content-body">
+          <ul class="content-list fa-content">
+            <% if user_signed_in? %>
+              <% if @followed_course.size == 0 %>
+                <a href="#" class="hoverable">
+                  <div class="empty-list">
+                    <center>Add new course to follow</center>
+                  </div>
+                </a>
+              <% else %>
+                <% @followed_course.each do |f_course| %>
+                  <li id="course-<%= f_course.id %>">
+                    <%= fa_icon "circle", class: 'fa-fa fa-1' %>&nbsp;
+                    <%= link_to(f_course.name, course_path(f_course)) %> 
+                      <div class="edit-class hidden">
+                        <%= link_to('X', course_unfollow_path(f_course), method: :post,remote: :true) %>
+                      </div>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div><br>
+      <div class="content">
+        <div class="content-heading">
+          <div class="row">
+            <div class="col-md-12"><a href="#" class="sec-color"><b>Trending Exams</b>&nbsp;&nbsp;<i class="fa fa-line-chart"></i>
+</a></div>
+          </div>
+        </div>
+        <div class="content-body">
+          <ul class="content-list fa-content">
+            <% @trending_courses.each do |trending_course| %>
+              <li>
+                <%= fa_icon "circle", class: 'fa-fa fa-1' %>&nbsp;&nbsp;
+                <%= link_to(trending_course.name, "#") %> 
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-10 col-sm-12">
+      <div class="content">
+        <div class="content-heading">
+          <div class="row">
+            <div class="col-md-6"><b><p id="tab-title" class="sec-color">Top Questions</p></b>
+            </div>
+            <div class="col-md-6 text-right">
+              <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                    <li class="active"><a href="#top" name="Top Questions" data-toggle="tab">Top</a></li>
+                    <li><a href="#hot" data-toggle="tab" name="Hot Questions">Hot</a></li>
+                    <li><a href="#week" data-toggle="tab" name="Weekly Questions">Week</a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="content-body">
+          <div id="my-tab-content" class="tab-content col-md-8">
+                <div class="tab-pane active" id="top">
+                  <!---Change to collection-->
+                  <% @top_topics.each do |topics| %>
+                    <%= render :partial => 'feeds/feeds_list' , locals: { :topic => topics } %>
+                  <% end %>
+                </div>
+                
+                <div class="tab-pane" id="hot">
+                   <% @hot_topics.each do |topics| %>
+                    <%= render :partial => 'feeds/feeds_list' , locals: { :topic => topics } %>
+                  <% end %> 
+                </div>
+
+                <div class="tab-pane" id="week">
+                  <% @weekly_topics.each do |topics| %>
+                    <%= render :partial => 'feeds/feeds_list' , locals: { :topic => topics } %>
+                  <% end %>
+                </div>
+            </div>
+             <div class="col-md-4">
+               <% if user_signed_in? %>
+                  <% if @preparing_for.present? %>
+                    <ul class="content-list05">
+                          <h5><p class="sec-color"><b>Recent questions for <%= @preparing_for.name %></b><small><b><a href="#" class="sec-color">&nbsp;EDIT</a></b></small></p></h4>
+                          <%= render partial: 'topics/topic_list', collection: @recent_course_question %>
+                    </ul>
+                        <br>
+                    <ul class="content-list03">
+                          <h5><p class="sec-color"><b>Users also preparing for <%= @preparing_for.name %></b></p></h4>
+                          <%= render partial: 'users/user_list', collection: @user_also_takings %>
+                    </ul>
+                  <% else %>
+                    <a href="#" class="hoverable">
+                        <div class="empty-list">
+                          <center>Set Test To Prepare for</center>
+                        </div>
+                      </a>
+                       
+                  <% end %>
+                <% end %>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+  window._token = '<%= form_authenticity_token %>';
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  var target = $(e.target).attr("name") // activated tab
+  $('#tab-title').text(target);
+});
+
+</script>

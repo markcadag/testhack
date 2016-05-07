@@ -1,0 +1,615 @@
+//colors
+$color_mountain_meadow_approx: #1abc9c;
+$color_mountain_meadow_light_approx: #17A98C;
+$color_submarine_approx: #bdc3c7;
+$color_watercourse_approx: #0f705d;
+$color_oslo_gray_approx: #7f8c8d;
+$white: #ffffff;
+$color_bon_jour_approx: #e0e0e0;
+$silver: #c0c0c0;
+$color_mountain_mist_approx: #999999;
+$black_20: rgba(0, 0, 0, 0.2);
+$black_50: rgba(0,0,0,0.5);
+$color_downy_approx: #75d6c3;
+$color_black_squeeze_approx: #f1faf9;
+$color_dove_gray_approx: #707070;
+$color_celeste_approx: #cccccc;
+$color_valencia_approx: #dd4b39;
+$color_astronaut_approx: #2f4779;
+$color_picton_blue_approx: #4099ff;
+$color_puerto_rico_approx: #47c9af;
+$color_storm_dust_approx: #666666;
+$color_aqua_spring_approx: #e8f8f5;
+$color_deep_teal_approx: #07382e;
+$color_chicago_approx: #5b5b5b;
+
+$color_log_cabin_approx: #222222;
+$color_dove_gray_approx: #6d6e6e;
+$color_gigas_approx: #58319c;
+$color_wild_sand_approx: #f5f5f4;
+
+.editable-buttons .editable-submit {
+		background-color: $color_mountain_meadow_light_approx !important;
+}
+
+.footerr {
+	margin-top: 180px;
+	background: $color_log_cabin_approx;
+	width: 100%;
+	height: auto !important;
+}
+
+.navbar-default {
+	border-color: none;	
+}
+
+.footer-indent {
+	text-align: justify;
+	li {
+		color: $color_dove_gray_approx;
+		list-style: none;
+		a {
+			text-decoration: none;
+			color: $color_dove_gray_approx;
+			list-style: none;
+			line-height: 2;
+			&:hover {
+				color: $color_mountain_meadow_light_approx !important;
+				text-decoration: none;
+				list-style: none;
+			}
+		}
+	}
+}
+
+.footer-margin {
+	margin: 10px;
+}
+
+.navbar-default {
+	.navbar-nav {
+		.open {
+			a {
+				background-color:$color_mountain_meadow_light_approx !important;
+			}
+		}
+	}  
+}
+
+.footer-indent-socials li {
+	color: $color_dove_gray_approx;
+	list-style: none;
+	text-align: left !important;
+	display: inline-block;
+	a {
+		color: $color_dove_gray_approx !important;
+		list-style: none;
+		display: inline-block;
+		margin-left: 15px;
+		&:hover {
+			color: $color_mountain_meadow_light_approx !important;
+		}
+	}
+}
+.footer-indent-title li {
+	color: $color_wild_sand_approx;
+	font-weight: bold;
+	list-style: none;
+}
+
+.fa-fa-white {
+  color: white;
+}
+
+
+.dropdown-menu {
+	background-color:  $color_mountain_meadow_light_approx;	
+}
+
+//@extend-elements
+//original selectors
+//.nav-tabs >li.active >a, .nav-tabs >li.active >a:focus, .nav-tabs >li.active >a:hover
+%extend_1 {
+	border: 0 solid $color_mountain_meadow_approx !important;
+	border-top: 5px solid $color_mountain_meadow_approx !important;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0;
+}
+
+//original selectors
+//.form-control:hover, .form-control:focus
+%extend_2 {
+	border: 2px solid $color_mountain_meadow_approx !important;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7`1, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: none !important;
+	outline: 0;
+}
+
+//original selectors
+//.js-video embed, .js-video iframe, .js-video object, .js-video video
+%extend_3 {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.select2-select {
+	width: 100%;
+}
+
+.container-fluid {
+	margin-top: 80px;
+}
+
+a {
+	color: $color_mountain_meadow_approx;
+	&:hover {
+		color: $color_mountain_meadow_approx;
+	}
+	&:active {
+		color: $color_mountain_meadow_approx;
+	}
+	&.hoverable {
+		text-decoration: none;
+		text-transform: none;
+	}
+}
+.content-heading {
+	border-bottom: 1px solid $color_submarine_approx;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.content-body {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.content-list02 {
+	padding-left: 60px;
+	line-height: 1.5;
+	color: $color_watercourse_approx;
+	list-style: square;
+}
+.content-list03 {
+	line-height: 1.7;
+	padding-left: 30px;
+	list-style: none;
+	color: $color_watercourse_approx;
+}
+.content-list04 {
+	line-height: 1.5;
+	padding-left: 30px;
+	list-style: none;
+}
+
+.content-list05 {
+	padding: 0;
+	list-style: none;
+	padding-left:30px;
+	li {
+		margin-bottom: 10px;
+	}
+}
+
+.content-list {
+	padding: 0;
+	list-style: square;
+	color: $color_watercourse_approx;
+	li {
+		margin-bottom: 10px;
+	}
+}
+.fa-content {
+	list-style: none;
+}
+.fa-dot-circle-o {
+	color: $color_watercourse_approx;
+}
+.nav-tabs {
+	border-bottom: 0 solid $color_submarine_approx;
+	width: 100%;
+	li {
+		display: inline-block;
+		width: 33%;
+		text-align: center;
+	}
+	> li.active > a {
+		@extend %extend_1;
+		&:focus {
+			@extend %extend_1;
+		}
+		&:hover {
+			@extend %extend_1;
+		}
+	}
+}
+.title {
+	font-size: 16px;
+	line-height: 1.5;
+}
+.img-pic {
+	width: 50px;
+	height: 50px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 50px;
+	overflow: hidden;
+}
+.img-pic02 {
+	width: 40px;
+	height: 40px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 50px;
+	overflow: hidden;
+}
+small {
+	color: $color_oslo_gray_approx;
+}
+
+.tags {
+	padding: 0;
+	li {
+		background-color: $color_mountain_meadow_approx;
+		color: $white;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 5px;
+		padding: 5px;
+		margin-right: 5px;
+		display: inline-block;
+		cursor: pointer;
+	}
+}
+
+.actions {
+	padding: 0;
+	li {
+		color: $color_submarine_approx;
+		padding: 5px;
+		margin-right: 5px;
+		display: inline-block;
+		cursor: pointer;
+	}
+}
+
+.q-list {
+	border-bottom: 1px solid $color_submarine_approx !important;
+	margin-bottom: 20px;
+}
+
+.navbar {
+	background-color: $color_mountain_meadow_approx;
+	li a {
+		color: $white !important;
+	}
+}
+
+.navbar-brand {
+	color: $white !important;
+}
+
+.selectpicker {
+	background: $white;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	width: 100%;
+	border: solid 1px $silver;
+	padding: 8px;
+	color: $color_mountain_mist_approx;
+	appearance: none;
+}
+
+.shadows {
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 2px 2px 10px $black_20;
+}
+
+.expandable02 {
+	width: 400px !important;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: width 1s ease-in-out;
+	float: right;
+	&:focus {
+		width: 1000px;
+	}
+}
+
+.expandable {
+	width: 500px !important;
+	//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: width 1s ease-in-out;
+	float: right;
+	&:focus {
+		width: 1000px;
+	}
+}
+
+.container-full {
+	width: 100%;
+	height: auto;
+	padding: 20px;
+	padding-top: 5%;
+	padding-bottom: 8%;
+	background: $white;
+}
+
+cd .wrap {
+	width: 100%;
+	padding-top: 8%;
+	padding-bottom: 8%;
+	background: $white;
+}
+
+.header-content {
+	width: 100%;
+	padding: 30px;
+	background-color: white;
+}
+
+.desc {
+	line-height: 2;
+}
+
+.landing-background {
+	height: auto;
+	padding: 30px;
+	padding-top: 8%;
+	padding-bottom: 5%;
+}
+.search-btn02 {
+	display: none;
+	margin-top: -27px !important;
+	padding: 10px;
+	width: 100%;
+	border: 0;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 20px;
+	background: $color_mountain_meadow_light_approx;
+	color: $white;
+	&:hover {
+		background: $color_downy_approx;
+		color: $white;
+	}
+}
+.search-btn {
+	margin-top: 5px;
+	padding: 10px;
+	padding-left: 20px;
+	width: 100%;
+	border: 0;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 20px;
+	background: $color_mountain_meadow_light_approx;
+	color: $white;
+	&:hover {
+		background: $color_downy_approx;
+		color: $white;
+	}
+}
+.well01 {
+	background: $color_black_squeeze_approx;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 4px;
+}
+.prof-profimg {
+	width: 150px;
+	height: 150px;
+}
+.prof-img {
+	width: 55px;
+	height: 55px;
+}
+.def-size {
+	font-size: 1.2em;
+	line-height: 1.5;
+}
+.ask {
+	margin-top: 5px;
+	font-size: 1px;
+}
+.def-color {
+	color: $color_mountain_meadow_approx;
+	text-align: justify;
+}
+.def-color01 {
+	color: $color_mountain_meadow_approx;
+	text-align: center;
+}
+.sec-color {
+	color: $color_dove_gray_approx;
+	text-align: justify;
+}
+.third-color {
+	color: $color_celeste_approx;
+	text-align: justify;
+}
+.vertical-line {
+	width: auto;
+	height: 300px;
+}
+.fas {
+	font-size: 1.5em !important;
+	margin: auto;
+}
+.vid {
+	width: 100%;
+	border: solid 1px $color_mountain_meadow_approx;
+}
+.social-gplus {
+	color: $white;
+	font-size: 1.2em;
+	background: $color_valencia_approx;
+	min-width: 20%;
+	height: auto;
+	padding: 15px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 2px;
+}
+.social-fb {
+	color: $white;
+	font-size: 1.2em;
+	background: $color_astronaut_approx;
+	min-width: 20%;
+	height: auto;
+	padding: 15px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 2px;
+}
+.social-twitter {
+	color: $white;
+	font-size: 1.2em;
+	background: $color_picton_blue_approx;
+	min-width: 20%;
+	height: auto;
+	padding: 15px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 2px;
+}
+.fa-fa {
+	color: $color_mountain_meadow_approx;
+}
+.def-title-size {
+	font-size: 3em;
+	color: $color_mountain_meadow_approx;
+}
+.def-btn {
+	background: $color_mountain_meadow_approx;
+	color: $white;
+	padding: 8px;
+	&:hover {
+		background: $color_puerto_rico_approx;
+		color: $white;
+	}
+}
+.frame-lgin {
+	margin-top: 5%;
+	border: solid 1px $color_bon_jour_approx;
+	height: auto;
+	max-width: 650px;
+	padding: 15px;
+}
+.form-control {
+	border: 1px solid $color_bon_jour_approx !important;
+	padding: 6px 50px 6px 10px !important;
+	background: $white none no-repeat scroll !important;
+	margin-bottom: 20px;
+	height: 38px;
+	&:hover {
+		@extend %extend_2;
+	}
+	&:focus {
+		@extend %extend_2;
+	}
+}
+
+.form-control-text-area {
+	border: 1px solid $color_bon_jour_approx !important;
+	padding: 6px 50px 6px 10px !important;
+	background: $white none no-repeat scroll !important;
+	margin-bottom: 20px;
+	height: 45px;
+	&:hover {
+		@extend %extend_2;
+	}
+	&:focus {
+		@extend %extend_2;
+	}
+}
+
+
+.footer-div {
+	margin-bottom: 0;
+	width: 100%;
+	height: auto;
+	background: $color_storm_dust_approx;
+	padding: 20px;
+}
+.footer-footer {
+	margin-bottom: 0;
+	width: 100%;
+	height: auto;
+	background: $color_deep_teal_approx;
+	padding: 20px;
+	border-top: solid 1px $color_mountain_mist_approx;
+}
+.footer-email {
+	background: $color_chicago_approx;
+	padding: 10px;
+}
+.inner-addon {
+	position: relative;
+	.fa {
+		position: absolute;
+		padding: 10px;
+		pointer-events: none;
+	}
+}
+.js-video {
+	height: 0;
+	padding-top: 25px;
+	padding-bottom: 67.5%;
+	margin-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+	&.widescreen {
+		padding-bottom: 56.34%;
+	}
+	&.vimeo {
+		padding-top: 0;
+	}
+	embed {
+		@extend %extend_3;
+	}
+	iframe {
+		@extend %extend_3;
+	}
+	object {
+		@extend %extend_3;
+	}
+	video {
+		@extend %extend_3;
+	}
+}
+#tabs > li > a {
+	padding: 0 !important;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+.socials li {
+	font-size: 1.5em;
+	color: $color_bon_jour_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 5px;
+	padding: 10px;
+	display: inline-block;
+	cursor: pointer;
+}
+input.foot-em {
+	background: $color_storm_dust_approx !important;
+	border: solid 1px $silver !important;
+}
+.left-addon .fa {
+	left: 0;
+	color: $silver;
+	font-size: 1.2em;
+}
+.right-addon .fa {
+	right: 0;
+	color: $silver;
+	font-size: 1.2em;
+}
+
+.empty-list {
+	border-style: dotted;
+	padding:20px;
+	padding-bottom:40px;
+	padding-top:40px;
+}
+
+.popover {
+	top: 71px !important;
+	left: 250px !important;
+}

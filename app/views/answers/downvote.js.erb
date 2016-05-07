@@ -1,0 +1,6 @@
+console.log( <%= @answer.cached_weighted_score %>);
+$('#answer-' + <%= @answer.id %>).upvote({
+ 	count:  <%= @answer.cached_weighted_score %>, 
+	upvoted: <%= @answer.cached_votes_up %>, 
+	downvoted: <%= @answer.cached_votes_down %>}
+);

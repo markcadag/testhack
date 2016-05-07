@@ -1,0 +1,193 @@
+//colors
+$color_black_haze_approx: #f7f7f7;
+$color_boston_blue_approx: #428bca;
+$color_willow_brook_approx: #dff0d8;
+$color_vanilla_ice_approx: #f2dede;
+$color_solitaire_approx: #fcf8e3;
+$color_link_water_approx: #d9edf7;
+$color_mine_shaft_approx: #333;
+$white: #fff;
+$color_killarney_approx: #3c763d;
+$color_beryl_green_approx: #d6e9c6;
+$color_calypso_approx: #31708f;
+$color_charlotte_approx: #bce8f1;
+$color_pesto_approx: #8a6d3b;
+$color_champagne_approx: #faebcc;
+$color_apple_blossom_approx: #a94442;
+$color_oyster_pink_approx: #ebccd1;
+$color_alabaster_approx: #fbfbfb;
+$color_cararra_approx: #ebebeb;
+
+//urls
+$url_0: url(../img/loading.gif);
+
+.popover {
+	padding: 0;
+	&.has-footer {
+		&.top > .arrow:after {
+			border-top-color: $color_alabaster_approx;
+		}
+		&.left-bottom > .arrow:after {
+			border-top-color: transparent;
+			border-left-color: $color_alabaster_approx;
+		}
+		&.right-bottom > .arrow:after {
+			border-top-color: transparent;
+			border-right-color: $color_alabaster_approx;
+		}
+	}
+	> .close {
+		float: right;
+		margin: 7px 9px 7px 7px;
+	}
+	&.top-right > .arrow {
+		left: 90%;
+	}
+	&.bottom-right > .arrow {
+		left: 90%;
+	}
+	&.top-left > .arrow {
+		left: 10%;
+	}
+	&.bottom-left > .arrow {
+		left: 10%;
+	}
+	&.left-top > .arrow {
+		top: 10%;
+	}
+	&.right-top > .arrow {
+		top: 10%;
+	}
+	&.left-bottom > .arrow {
+		top: 90%;
+	}
+	&.right-bottom > .arrow {
+		top: 90%;
+	}
+}
+.popover-lg {
+	min-width: 480px;
+}
+.popover-md {
+	min-width: 350px;
+}
+.popover-default {
+	&.bottom > .arrow:after {
+		border-bottom-color: $color_black_haze_approx;
+	}
+	&.left-top > .arrow:after {
+		border-left-color: $color_black_haze_approx;
+	}
+	&.right-top > .arrow:after {
+		border-right-color: $color_black_haze_approx;
+	}
+	> .popover-title {
+		color: $color_mine_shaft_approx;
+		background-color: $color_black_haze_approx;
+	}
+}
+.popover-primary {
+	&.bottom > .arrow:after {
+		border-bottom-color: $color_boston_blue_approx;
+	}
+	&.left-top > .arrow:after {
+		border-left-color: $color_boston_blue_approx;
+	}
+	&.right-top > .arrow:after {
+		border-right-color: $color_boston_blue_approx;
+	}
+	> .popover-title {
+		color: $white;
+		background-color: $color_boston_blue_approx;
+		border: 2px solid $color_boston_blue_approx;
+	}
+}
+.popover-success {
+	&.bottom > .arrow:after {
+		border-bottom-color: $color_willow_brook_approx;
+	}
+	&.left-top > .arrow:after {
+		border-left-color: $color_willow_brook_approx;
+	}
+	&.right-top > .arrow:after {
+		border-right-color: $color_willow_brook_approx;
+	}
+	> .popover-title {
+		color: $color_killarney_approx;
+		background-color: $color_willow_brook_approx;
+		border-bottom: 1px solid $color_beryl_green_approx;
+	}
+}
+.popover-danger {
+	&.bottom > .arrow:after {
+		border-bottom-color: $color_vanilla_ice_approx;
+	}
+	&.left-top > .arrow:after {
+		border-left-color: $color_vanilla_ice_approx;
+	}
+	&.right-top > .arrow:after {
+		border-right-color: $color_vanilla_ice_approx;
+	}
+	> .popover-title {
+		color: $color_apple_blossom_approx;
+		background-color: $color_vanilla_ice_approx;
+		border-bottom: 1px solid $color_oyster_pink_approx;
+	}
+}
+.popover-warning {
+	&.bottom > .arrow:after {
+		border-bottom-color: $color_solitaire_approx;
+	}
+	&.left-top > .arrow:after {
+		border-left-color: $color_solitaire_approx;
+	}
+	&.right-top > .arrow:after {
+		border-right-color: $color_solitaire_approx;
+	}
+	> .popover-title {
+		color: $color_pesto_approx;
+		background-color: $color_solitaire_approx;
+		border-bottom: 1px solid $color_champagne_approx;
+	}
+}
+.popover-info {
+	&.bottom > .arrow:after {
+		border-bottom-color: $color_link_water_approx;
+	}
+	&.left-top > .arrow:after {
+		border-left-color: $color_link_water_approx;
+	}
+	&.right-top > .arrow:after {
+		border-right-color: $color_link_water_approx;
+	}
+	> .popover-title {
+		color: $color_calypso_approx;
+		background-color: $color_link_water_approx;
+		border-bottom: 1px solid $color_charlotte_approx;
+	}
+}
+.popover-footer {
+	padding: 4px;
+	background-color: $color_alabaster_approx;
+	text-align: right;
+	border-top: 1px solid $color_cararra_approx;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 0 0 5px 5px;
+	.btn + .btn {
+		margin-bottom: 0;
+		margin-left: 4px;
+	}
+	.btn-group .btn + .btn {
+		margin-left: -1px;
+	}
+	.btn-block + .btn-block {
+		margin-left: 0;
+	}
+}
+.popover-loading {
+	padding: 30px;
+	background: $url_0 center center;
+}
+.has-footer.popover.top > .arrow:after {
+	border-top-color: $color_alabaster_approx;
+}

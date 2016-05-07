@@ -1,0 +1,13 @@
+<ul class="actions">
+	<li><i class="fa fa-thumbs-o-up"></i>&nbsp;<%= link_to(topic.likers(User).size.to_s + ' Likes', topic_toggle_like_path(topic), :id => 'topic-like-' + topic.id.to_s ,method: :post,remote: :true) %>
+	</li>
+ 	<li><i class="fa fa-comments"></i>&nbsp;<%= link_to 'Answers', topic_path(topic) %></li>
+ 	<li><%= social_share_button_tag('mark', :popup => "true") %></li>
+</ul>
+
+
+<script type="text/javascript">
+	function func2(id) {
+    	alert(id);
+	}
+</script>

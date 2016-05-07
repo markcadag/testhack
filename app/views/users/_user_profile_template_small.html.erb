@@ -1,0 +1,12 @@
+<div class="row">
+	<div class="col-md-1">
+		<div class="img-pic">
+			  <%= image_tag user.avatar.small_thumb.url if user.avatar? %>
+               
+		</div>
+	</div>
+	<div class="col-md-10">
+		&nbsp; <%= user.first_name %> <%= user.last_name %> , Bicol University, 2016 <br/>
+		&nbsp; <small><%= question_count %> topics</small>&nbsp;|&nbsp;<small><%= answer_count %> answered</small>
+	</div>
+</div>

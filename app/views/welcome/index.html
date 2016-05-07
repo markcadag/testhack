@@ -1,0 +1,82 @@
+<div id="pic2" style="margin-top:50px;" class="bg-holder" data-width="1024" data-height="768">
+	<div class="col-md-5 col-sm-12 landing-background ">
+		<div class="header-content">
+	    		<center>
+	    			<h3><p class="def-color01">Test Prepare Helps</p></h3>
+		    		<p><span class="sec-color">Don't have an account yet?</span><br><%= link_to('Sign up now!', new_user_registration_path) %></p><br/>
+		    		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            		<%= devise_error_messages! %>
+        			<div class="form-group">
+		    			<div class="row">
+		    				<div class="col-md-6">
+		    					<%= f.text_field :first_name, autofocus: true, :class => 'form-control', placeholder: 'Jenny' %>
+		    				</div>
+		    				<div class="col-md-6">
+		    					<%= f.text_field :last_name, autofocus: true, :class => 'form-control', placeholder: 'Zamora' %>
+		    				</div>
+		    			</div>
+		    			<div class="row">
+		    				<div class="col-md-6">
+		    					<%= f.email_field :email, autofocus: true, :class => 'form-control', placeholder: 'jenny@email.com' %>
+		    				</div>
+		    				<div class="col-md-6">
+		    					<% if @minimum_password_length %>
+                				<em>(<%= @minimum_password_length %> characters minimum)</em>
+                				<br />
+                				<% end %>
+              					<%= f.password_field :password, autocomplete: "off", :class => 'form-control', placeholder: '••••••••' %>
+		    				</div>
+		    			</div>
+		    			<%= f.submit "Sign up", :class => 'btn def-btn btn-block' %>
+		    		</div>
+		   			<% end %>
+		    	</center>
+	    </div>
+	</div>
+</div>
+<section>
+	<div class="container-full">
+		<div class="container">
+    		<div class="row">
+	    		<div class="col-md-6">
+	    			<h3><p class="def-color"><b>FEATURETTE</b></p></h3>
+	    			<p class="sec-color def-size">
+	    				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	    			</p>
+	    		</div>
+	    		<div class="col-md-6">
+	    			<div class="img-thumbnail">
+	    				<img src="/images/front-end.png" class="img-responsive">
+	    			</div>
+	    		</div>
+	    	</div>
+	 	</div>
+    </div>
+</section>
+
+<div id="pic1" style="margin-top:50px;" class="bg-holder" data-width="1024" data-height="768">
+	<div class="landing-background">
+	    		
+	</div>
+</div>
+
+
+<section>
+	<div class="container-full">
+		<div class="container">
+    		<div class="row">
+	    		<div class="col-md-6">
+	    			<div class="img-thumbnail">
+	    				<img src="/images/front-end.png" class="img-responsive">
+	    			</div>
+	    		</div>
+	    		<div class="col-md-6">
+	    			<h3><p class="def-color"><b>FEATURETTE</b></p></h3>
+	    			<p class="sec-color def-size">
+	    				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	    			</p>
+	    		</div>
+	    	</div>
+	 	</div>
+    </div>
+</section>

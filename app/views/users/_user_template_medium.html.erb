@@ -1,0 +1,6 @@
+<% if answer.present? %>
+	<div class="col-md-9">
+	      &nbsp; <%= answer.user.first_name %> <%= answer.user.last_name %>, Bicol University, 2016 <br/>
+	      &nbsp; <small><%= answer.topic.cached_views_count %> views</small>
+	</div>
+<% end %>

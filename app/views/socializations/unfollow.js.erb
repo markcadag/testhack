@@ -1,0 +1,5 @@
+$('#course-<%= @socializable.id %>').fadeOut(300,
+	function() {
+	 $('#course-<%= @socializable.id %>').remove();
+	}
+);

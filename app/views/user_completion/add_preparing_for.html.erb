@@ -1,0 +1,7 @@
+<h4>Add Preparing For</h4>
+<%= form_for (TestPreparing.new, :url => wizard_path, :method => :post)  do |f| %>
+ 	<%= f.select :course_id, Course.all.collect {|c| [ c.name, c.id ] } , {}, :id => "course_id", :style => 'width:100%;'  %>
+ 	<%= f.submit 'Next', :class=> 'btn btn-primary' %>
+<% end %>
+
+<% link_to 'Skip', next_wizard_path %>

@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="container-fluid">
+      <center>
+        <br>
+        <p><b class="def-title-size">Test Prepare</b><br>
+        <span class="sec-color">Don't have an account yet?</span>&nbsp;<%= link_to('Sign up now!', new_user_registration_path) %></p>
+        <div class="frame-lgin shadows">
+          <div class="row">
+            <div class="col-md-6 col-sm-12" >
+              <a href="#" class="hoverable">
+                <div class="social-gplus">
+                  <i class="fas fa fa-google-plus-square pull-left"></i>
+                  &nbsp;&nbsp;Continue With Google+
+                </div>
+              </a>
+              <br>
+              <a href="<%= user_omniauth_authorize_path(:facebook) %>" class="hoverable">
+                <div class="social-fb">
+                  <i class="fas fa fa-facebook-square pull-left"></i>&nbsp;&nbsp;Continue With Facebook
+                </div>
+              </a>
+              <br>
+              <a href="#" class="hoverable">
+                <div class="social-twitter">
+                   <i class="fas fa fa-twitter-square pull-left"></i>
+                  &nbsp;&nbsp;Continue With Twitter
+                </div>
+              </a>
+              <br>
+              <div class="sec-color">
+                <p><%= link_to('Continue With Email', new_user_registration_path) %>. By signing up you indicate that you have read and agree to the Terms of Service and Privacy Policy.</p>
+              </div>
+            </div>
+              <div class="col-md-1 " >
+                <img src="/images/line.png" class="vertical-line img-responsive visible-lg-inline visible-md-inline">
+              </div>
+            <div class="col-md-5 col-sm-12">
+            
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <p><a href="#" class="pull-left"><b>Login</b></a></p>
+              <br>
+              <br>
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, :class => 'form-control', :style => 'width:100%',placeholder: 'Email' %>
+                <%= f.password_field :password, autocomplete: false, :class => 'form-control', placeholder: 'Password' %>
+                <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                    <%= f.check_box :remember_me, :class => 'pull-left'%>
+                    <%= f.label :remember_me, :class => 'pull-left sec-color', :style => 'font-weight:normal;'%>
+                  </div>
+                <% end -%>
+              </div>
+              <br>
+              <%= f.submit "Login", :class => 'btn def-btn btn-block' %>
+              <%= render "devise/shared/links" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </center>
+    </div>
+  </div>

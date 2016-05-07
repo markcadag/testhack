@@ -1,0 +1,41 @@
+//colors
+$color_black_haze_approx: #f7f7f7;
+$color_alto_approx: #ddd;
+
+//@extend-elements
+//original selectors
+//.panel >.panel-heading:after, .panel >.panel-heading:before
+%extend_1 {
+	position: absolute;
+	top: 11px;
+	left: -16px;
+	right: 100%;
+	width: 0;
+	height: 0;
+	display: block;
+	content: " ";
+	border-color: transparent;
+	border-style: solid solid outset;
+	pointer-events: none;
+}
+
+.thumbnail {
+	padding: 0;
+}
+.panel {
+	position: relative;
+	> .panel-heading {
+		&:after {
+			@extend %extend_1;
+			border-width: 7px;
+			border-right-color: $color_black_haze_approx;
+			margin-top: 1px;
+			margin-left: 2px;
+		}
+		&:before {
+			@extend %extend_1;
+			border-right-color: $color_alto_approx;
+			border-width: 8px;
+		}
+	}
+}

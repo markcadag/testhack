@@ -1,0 +1,3 @@
+$('#answer-row-<%= @answer.id %>').remove();
+$('#title').text('<%= @answer.topic.answers.size %>' + " Answer(s)");
+console.log('deleted');

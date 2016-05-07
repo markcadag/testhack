@@ -1,0 +1,18 @@
+<li>
+  <div class="row">
+    <div class="col-md-2">
+        <div class="img-pic02">
+            <img src="/images/no-pic.png" class="img-responsive"/>
+        </div>
+    </div>
+  <div class="col-md-9" style="padding-left:20px;">
+    <p><%= link_to(user_list.first_name, user_path(user_list)) %><br>
+      <% if user_list.academies.last.present? %>
+        <%= user_list.academies.last.name %>
+      <% else %>
+        Place Holder
+      <% end %>
+    </p>
+ </div>
+ </div>
+</li>

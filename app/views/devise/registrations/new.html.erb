@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="container-fluid">
+      <center>
+        <br>
+        <p><b class="def-title-size">Test Prepare</b><br>
+        <span class="sec-color">Already have an acoount?</span>&nbsp;<a href="#">Sign in!</a></p>
+        <div class="frame-lgin shadows">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon"><%= fa_icon "user", class: 'fa-fa' %></div>
+              <%= f.text_field :first_name, autofocus: true, :class => 'form-control', placeholder: 'First Name' %>
+            </div><br>
+            <div class="input-group">
+              <div class="input-group-addon"><%= fa_icon "user", class: 'fa-fa' %></div>
+              <%= f.text_field :last_name, :class => 'form-control', placeholder: 'Last Name' %>
+            </div><br>
+            <div class="input-group">
+              <div class="input-group-addon"><%= fa_icon "envelope", class: 'fa-fa' %></div>
+              <%= f.email_field :email, :class => 'form-control', placeholder: 'Email' %>
+            </div><br>
+           <!--  <div class="input-group">
+              <div class="input-group-addon"><%= fa_icon "envelope", class: 'fa-fa' %></div>
+              <%= f.text_field :current_academy, autocomplete: false, :class => 'form-control', :id => 'academium-input', placeholder: 'School' %>
+            </div><br> -->
+            <div class="input-group">
+              <div class="input-group-addon"><%= fa_icon "key", class: 'fa-fa' %></div>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <br />
+                <% end %>
+              <%= f.password_field :password, autocomplete: "off", :class => 'form-control', placeholder: 'Password' %>
+            </div><br>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa-fa fa fa-key"></i></div>
+                <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control', placeholder: 'Re-type Password'%>
+            </div><br>
+
+            <input type="checkbox" class="pull-left">
+            <p class="pull-left sec-color">&nbsp;&nbsp;I agree to the <a href="#">Terms of Use</a></p><br><br>
+            <%= f.submit "Sign up", :class => 'btn def-btn btn-block' %>
+          </div>
+           <% end %>
+        </div>
+      </center>
+    </div>
+</div>
+

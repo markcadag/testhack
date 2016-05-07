@@ -1,0 +1,27 @@
+var $answerCount;
+var $userQuestionCount;
+
+<% if current_user.topics.present? %>
+	$userQuestionCount = "<%= current_user.topics.size %>";
+<% else %>
+	$userQuestionCount = "1";
+<% end %>
+
+<% if current_user.answers.present? %>
+	$answerCount = "<%= @answer.topic.answers.size %>";
+<% else %>
+	$answerCount = "1";
+<% end %>
+
+
+var $name = "<%= current_user.first_name %>" + " " +"<%= current_user.last_name %>";
+var $answerContent =  "<%= escape_javascript(simple_format(@answer.content)) %>";
+
+$('#title').text($answerCount + " Answer(s)");
+console.log($answerCount + " Answer(s)");
+$('#answers-container').append("<%= escape_javascript("#{render :partial => 'answers/answer_list', 
+	:locals => { :user => @answer.user, :question_count => @answer.user.topics.size, 
+		:answer_count => @answer.user.answers.size, :answer => @answer }}").html_safe %>");
+
+$('#answer_content').val('');
+$('.editable').editable();

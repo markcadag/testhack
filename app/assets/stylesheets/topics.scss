@@ -1,0 +1,164 @@
+// Place all the styles related to the Topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//colors
+$color_fuscous_gray_approx: #555;
+$color_mine_shaft_approx: #333;
+$white: #ffffff;
+
+//fonts
+$font_0: Arial;
+$font_1: Liberation;
+$font_2: Sans;
+$font_3: DejaVu Sans;
+$font_4: sans-serif;
+$font_5: DejaVu Sans Mono;
+$font_6: Bitstream Vera Sans Mono;
+$font_7: Courier New;
+$font_8: Courier;
+$font_9: Consolas;
+$font_10: Andale Mono WT;
+$font_11: Andale Mono;
+$font_12: Lucida Console;
+$font_13: Lucida Sans Typewriter;
+$font_14: monospace;
+$font_15: Tahoma;
+$font_16: Geneva;
+
+//urls
+$url_0: url(/images/sprites-stackoverflow.png?v=1);
+$url_1: url(/images/sprites-serverfault.png?v=1);
+$url_2: url(/images/sprites-meta-stackoverflow.png?v=1);
+$url_3: url(/images/sprites-superuser.png?v=1);
+$url_4: url(/images/sprites-unix.png?v=1);
+$url_5: url(/images/sprites-programmers.png?v=1);
+
+div {
+	&.upvote {
+		text-align: center;
+		a {
+			color: transparent;
+			background-image: $url_0;
+			background-repeat: no-repeat;
+			overflow: hidden;
+			display: block;
+			margin: 0 auto;
+			width: 41px;
+			height: 25px;
+			&.upvote-enabled {
+				cursor: pointer;
+			}
+			&.upvote {
+				background-position: 0 -265px;
+				&.upvote-on {
+					background-position: 0 -230px;
+				}
+			}
+			&.downvote {
+				background-position: 0 -300px;
+				&.downvote-on {
+					background-position: 0 -330px;
+				}
+			}
+			&.star {
+				width: 33px;
+				height: 31px;
+				background-position: 0 -150px;
+				&.star-on {
+					background-position: 0 -190px;
+				}
+			}
+		}
+		span.count {
+			display: block;
+			font-size: 24px;
+			font-family: $font_0, $font_1, $font_2, $font_3, $font_4;
+			color: $color_fuscous_gray_approx;
+			text-align: center;
+			line-height: 1;
+		}
+	}
+	&.upvote-unix {
+		a {
+			background-image: $url_4;
+			width: 42px;
+			height: 27px;
+			&.upvote {
+				background-position: 0 -237px;
+				&.upvote-on {
+					background-position: 0 -198px;
+				}
+			}
+			&.downvote {
+				background-position: 0 -281px;
+				&.downvote-on {
+					background-position: 0 -319px;
+				}
+			}
+			&.star {
+				width: 42px;
+				height: 30px;
+				background-position: 0 -126px;
+				&.star-on {
+					background-position: 0 -164px;
+				}
+			}
+		}
+		span.count {
+			color: $color_mine_shaft_approx;
+			line-height: 15px;
+			padding: 9px 0;
+			font-family: $font_5, $font_6, $font_7, $font_8, $font_9, $font_10, $font_11, $font_12, $font_13, $font_14;
+			//Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			text-shadow: 1px 1px 0 $white;
+			font-weight: bold;
+			margin: 0;
+			border: 0;
+			vertical-align: baseline;
+		}
+	}
+	&.upvote-programmers {
+		a {
+			background-image: $url_5;
+			width: 42px;
+			height: 20px;
+			&.upvote {
+				background-position: 5px -248px;
+				&.upvote-on {
+					background-position: 5px -211px;
+				}
+			}
+			&.downvote {
+				background-position: 5px -282px;
+				&.downvote-on {
+					background-position: 5px -320px;
+				}
+			}
+			&.star {
+				width: 42px;
+				height: 30px;
+				background-position: 6px -128px;
+				&.star-on {
+					background-position: 6px -166px;
+				}
+			}
+		}
+		span.count {
+			color: $color_mine_shaft_approx;
+			line-height: 15px;
+			padding: 5px 0 7px;
+			font-size: 20px;
+			font-weight: bold;
+			font-family: $font_15, $font_16, $font_0, $font_4;
+		}
+	}
+	&.upvote-serverfault a {
+		background-image: $url_1;
+	}
+	&.upvote-meta-stackoverflow a {
+		background-image: $url_2;
+	}
+	&.upvote-superuser a {
+		background-image: $url_3;
+	}
+}

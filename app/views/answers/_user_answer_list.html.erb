@@ -1,0 +1,35 @@
+<div class="row q-list">
+  <a href="#" class="title">
+     <h3><b><%= link_to(topic.subject, topic_path(topic)) %></b></h3>
+  </a>
+    <%= topic.content %>
+  <br/><br/>
+   
+  <div class="row">
+    <div class="col-md-1">
+      <div class="img-pic">
+        <img src="/images/no-pic.png" class="img-responsive"/>
+      </div>
+    </div>
+    
+      <div class="col-md-10">
+        &nbsp; <%= answer.user.first_name %> <%= answer.user.last_name %>, Bicol University, 2016 <br/>
+        &nbsp; <small><%= answer.topic.cached_views_count %> views</small>
+      </div><br/>
+  </div>
+    
+     <p><%= simple_format(answer.content) %></p>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <ul class="tags">
+          <%= render partial: 'tags/tag_list', collection: topic.tag_list %>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <%= render partial: 'shared/social_links', locals: { :topic => topic } %>
+        </div>
+      </div>
+</div>

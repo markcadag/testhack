@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testprepare</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <%= yield :koudoku %>
+</head>
+	<body>
+		 <%= include_gon %>
+		<%= render :partial => 'shared/navbar' %>  	
+	  	<p class="hidden notice"><%= notice %></p>
+	    <p class="hidden alert"><%= alert %></p>
+		<%= yield %>
+		<%= render :partial => 'shared/footer' %>
+	</body>
+</html>

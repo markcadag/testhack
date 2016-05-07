@@ -1,0 +1,19 @@
+ <%= js_will_paginate @user_topics %>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Content</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @user_topics.reverse_each  do |topic| %>
+    	<tr>
+	        <td><%= topic.subject %></td>
+	        <td><%= topic.content %></td>
+	        <td><%= topic.created_at %></td>
+      	</tr>
+	    <% end %>
+    </tbody>
+</table> 
