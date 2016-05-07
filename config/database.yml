@@ -83,3 +83,15 @@ production:
   database: testprepare_production
   username: testprepare
   password: <%= ENV['TESTPREPARE_DATABASE_PASSWORD'] %>
+
+production:
+  adapter: postgresql
+  database: testhackinstance
+  username: root
+  password: 8202097
+  encoding: unicode
+  host: testhackinstance.cmpjub5w2jfe.ap-southeast-1.rds.amazonaws.com
+  port: 5432
+  pool: 5
+  socket: /var/run/mysqld/mysql.sock
+
