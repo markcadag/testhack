@@ -32,8 +32,7 @@ class Topic < ActiveRecord::Base
                     :tsearch => {
                     	:normalization => 2,:prefix => true
                     },
-                    :trigram => {},
-                    :dmetaphone => {}
+                    :trigram => {}
                 },
                 :order_within_rank => "topics.updated_at DESC"
                 

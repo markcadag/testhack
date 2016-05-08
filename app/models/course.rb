@@ -15,7 +15,6 @@ class Course < ActiveRecord::Base
                     :tsearch => {
                     	:normalization => 2,:prefix => true
                     },
-                    :trigram => {},
-                    :dmetaphone => {}
+                    :trigram => {}
                   }
 end
