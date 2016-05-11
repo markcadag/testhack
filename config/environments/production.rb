@@ -50,7 +50,7 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
-
+  config.secret_key_base = 'ccbd25c885054661b83950fbf64783ecad39ad4a5503302414f2e1745b462bcf768c923339acc1bd6ad9adc8aca19a81d0f932ea266620a806f6d6c65deb0807'
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.active_record.schema_format = :ruby
+  
 end
