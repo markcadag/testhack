@@ -79,13 +79,23 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 
+# production:
+#   adapter: postgresql
+#   database: testhackinstance
+#   username: root
+#   password: 0916302484
+#   encoding: unicode
+#   host: testhackinstance.cmpjub5w2jfe.ap-southeast-1.rds.amazonaws.com
+#   port: 5432
+#   pool: 5
+
 production:
   adapter: postgresql
   database: testhackinstance
-  username: root
-  password: 0916302484
+  username: francis
+  password: cherrymobile1
   encoding: unicode
-  host: testhackinstance.cmpjub5w2jfe.ap-southeast-1.rds.amazonaws.com
+  host: postgrestesthackinstance.cmpjub5w2jfe.ap-southeast-1.rds.amazonaws.com
   port: 5432
   pool: 5
 
