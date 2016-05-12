@@ -24,9 +24,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-# add puma server
-gem 'puma'
-# needed for heroku
+
+gem 'unicorn'
+
 gem 'rails_12factor', group: :production
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 3.5.2'
